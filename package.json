@@ -1,12 +1,12 @@
 {
-  "name": "vue-pagination-cute",
+  "name": "vue-pagination-component",
   "version": "0.0.0",
   "description": "My lovely Vue component.",
   "repository": {
-    "url": "luyilin/vue-pagination-cute",
+    "url": "luyilin/vue-pagination-component",
     "type": "git"
   },
-  "main": "dist/vue-pagination-cute.common.js",
+  "main": "dist/vue-pagination-component.common.js",
   "files": [
     "dist"
   ],
@@ -40,6 +40,8 @@
     "vue-test-utils": "^1.0.0-beta.2"
   },
   "dependencies": {
-    "less": "^2.7.3"
+    "less": "^2.7.3",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
   }
 }

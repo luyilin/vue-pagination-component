@@ -21,28 +21,27 @@
         type: Number,
         required: true
       },
-      offset: {
-        type: Number,
-        default: 0
-      },
       limit: {
         type: Number,
         default: 10
       }
     },
 
+    data () {
+      return {
+        offset: 0
+      }
+    },
+
     computed: {
-      offset() {
-        return this.$store.state.offset
-      },
       prePage() {
-        return this.offset !== 0 && this.num
+        return this.offset !== 0 && this.count
       },
       nextPage() {
-        return (this.offset + this.limit < this.num) && this.num
+        return (this.offset + this.limit < this.count) && this.count
       },
       totalPage() {
-        return Math.ceil(this.num / this.limit)
+        return Math.ceil(this.count / this.limit)
       },
       currentPage() {
         return Math.ceil(this.offset / this.limit) + 1
@@ -67,22 +66,19 @@
     methods: {
       pageOffset(i) {
         if (i === 0 || i === this.currentPage) return
-        this.$store.commit('GO_PAGE', (i-1) * this.limit)
-        this.$emit('getNew')
+        this.offset -= (i-1) * this.limit
       },
       goPrePage() {
-        this.$store.commit('PRE_PAGE', this.limit)
-        this.$emit('getNew')
+        this.offset += this.limit
       },
       goNextPage() {
-        this.$store.commit('NEXT_PAGE', this.limit)
-        this.$emit('getNew')
+        this.offset = this.limit
       }
     }
   }
 </script>
 
-<style lang="less">
+<style lang="scss">
   .page-wrap {
     text-align: center;
     font-size: 18px;

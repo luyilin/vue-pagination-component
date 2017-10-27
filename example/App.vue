@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-pagination></v-pagination>
+    <v-pagination :count="100">qqww</v-pagination>
   </div>
 </template>
 
