@@ -2,7 +2,7 @@
   <div class="page-wrap">
     <ul v-show="prePage" class="li-page" @click="goPrePage">上一页</ul>
     <ul>
-      <li v-for="i in showPageBtn" :class="{active: i === currentPage, pointer: i, hover: i && i !== currentPage}" @click="pageOffset(i)">
+      <li v-for="i in showPageBtn" :class="{active: i === currentPage, pointer: i, hover: i && i !== currentPage}" @click="goPage(i)">
         <a v-if="i" class="notPointer">{{i}}</a>
         <a v-else>···</a>
       </li>
@@ -13,11 +13,12 @@
 </template>
 
 <script>
+
   export default {
     name: 'vue-pagination',
 
     props: {
-      count: {
+      total: {
         type: Number,
         required: true
       },
@@ -35,13 +36,13 @@
 
     computed: {
       prePage() {
-        return this.offset !== 0 && this.count
+        return this.offset !== 0 && this.total
       },
       nextPage() {
-        return (this.offset + this.limit < this.count) && this.count
+        return (this.offset + this.limit < this.total) && this.total
       },
       totalPage() {
-        return Math.ceil(this.count / this.limit)
+        return Math.ceil(this.total / this.limit)
       },
       currentPage() {
         return Math.ceil(this.offset / this.limit) + 1
@@ -63,19 +64,23 @@
         return [1,0, index-1, index, index + 1, 0, pageNum]
       }
     },
+
     methods: {
-      pageOffset(i) {
-        if (i === 0 || i === this.currentPage) return
-        this.offset -= (i-1) * this.limit
-      },
       goPrePage() {
+        this.offset -= this.limit
+      },
+
+      goNextPage() {
         this.offset += this.limit
       },
-      goNextPage() {
-        this.offset = this.limit
+
+      goPage(i) {
+        if (i === 0 || i === this.currentPage) return
+        this.offset = (i-1) * this.limit
       }
     }
   }
+
 </script>
 
 <style lang="scss">
