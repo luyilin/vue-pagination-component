@@ -32,7 +32,7 @@ Vue.use(vPagination)
 ### `total` : `number`
 The total of the data.
 
-### `pageSize` : `pageSize`
+### `pageSize` : `number`
 The number of items per page.
 
 ## License
