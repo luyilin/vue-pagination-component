@@ -9,22 +9,26 @@
     </ul>
     <ul v-show="nextPage" class="li-page" @click="goNextPage">下一页</ul>
   </div>
-
 </template>
 
 <script>
-
   export default {
-    name: 'vue-pagination',
+    name: 'v-pagination',
 
     props: {
       total: {
         type: Number,
         required: true
       },
-      limit: {
+      pageSize: {
         type: Number,
         default: 10
+      },
+      pageSizeList: {
+        type: Array,
+        default: () => {
+          return []
+        }
       }
     },
 
@@ -39,13 +43,13 @@
         return this.offset !== 0 && this.total
       },
       nextPage() {
-        return (this.offset + this.limit < this.total) && this.total
+        return (this.offset + this.pageSize < this.total) && this.total
       },
       totalPage() {
-        return Math.ceil(this.total / this.limit)
+        return Math.ceil(this.total / this.pageSize)
       },
       currentPage() {
-        return Math.ceil(this.offset / this.limit) + 1
+        return Math.ceil(this.offset / this.pageSize) + 1
       },
       showPageBtn() {
         let pageNum = this.totalPage,
@@ -67,16 +71,16 @@
 
     methods: {
       goPrePage() {
-        this.offset -= this.limit
+        this.offset -= this.pageSize
       },
 
       goNextPage() {
-        this.offset += this.limit
+        this.offset += this.pageSize
       },
 
       goPage(i) {
         if (i === 0 || i === this.currentPage) return
-        this.offset = (i-1) * this.limit
+        this.offset = (i-1) * this.pageSize
       }
     }
   }
@@ -85,6 +89,9 @@
 
 <style lang="scss">
   .page-wrap {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-align: center;
     font-size: 18px;
     margin-top: 180px;
@@ -100,6 +107,9 @@
         border-radius: 50%;
         user-select: none;
         border: 1px solid transparent;
+        &:hover {
+          color: #7ba6b3;
+        }
       }
     }
     .pointer {
@@ -120,6 +130,9 @@
     }
     .active {
       border-color: #246c81;
+      &:hover{
+        color: #1e5a6b
+      }
     }
   }
 </style>

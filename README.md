@@ -1,6 +1,8 @@
 # vue-pagination-component
 
-A cute [Vue](https://vuefe.cn/) component for pagination.
+A cute [Vue](https://vuefe.cn/) pagination component.
+
+### [Demo](https://luyilin.github.io/vue-pagination-component/example/dist/index)
 
 ## Install
 
@@ -16,16 +18,13 @@ CDN: [UNPKG](https://unpkg.com/vue-pagination-component/) | [jsDelivr](https://c
 <template>
   <v-pagination :count="100"></v-pagination>
 </template>
+```
 
-<script>
-import VPagination from 'vue-pagination-component'
+```js
+import vPagination from 'vue-pagination-component'
 
-export default {
-  components: {
-    VPagination
-  }
-}
-</script>
+Vue.use(vPagination)
+
 ```
 
 ## Props
@@ -33,7 +32,7 @@ export default {
 ### `total` : `number`
 The total of the data.
 
-### `limit` : `number`
+### `pageSize` : `pageSize`
 The number of items per page.
 
 ## License

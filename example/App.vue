@@ -7,13 +7,8 @@
 </template>
 
 <script>
-import VPagination from '../src'
 
 export default {
-  components: {
-    VPagination
-  },
-
   methods: {
     changeBg() {
       var c = document.getElementsByTagName('canvas')[0];
@@ -61,23 +56,10 @@ export default {
 </script>
 
 <style lang="scss">
-  #app {
-    font-family: Avenir,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
   #evanyou {
     position: fixed;
