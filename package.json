@@ -31,11 +31,18 @@
     "format": [
       "cjs",
       "umd"
-    ]
+    ],
+    "plugins": [
+      "vue"
+    ],
+    "vue": {
+      "css": "dist/vue-pagination-component.css"
+    }
   },
   "devDependencies": {
     "bili": "^0.18.2",
     "poi": "^9.3.10",
+    "rollup-plugin-vue": "^2.5.2",
     "test-vue-app": "^1.0.0",
     "vue-test-utils": "^1.0.0-beta.2"
   },
