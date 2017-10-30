@@ -18,6 +18,8 @@ CDN: [UNPKG](https://unpkg.com/vue-pagination-component/) | [jsDelivr](https://c
 <template>
   <v-pagination :count="100"></v-pagination>
 </template>
+
+<style src="vue-pagination-component/dist/vue-pagination-component.css"></style>
 ```
 
 ```js
