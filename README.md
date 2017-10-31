@@ -1,5 +1,7 @@
 # vue-pagination-component
 
+[![NPM version](https://img.shields.io/npm/v/vue-pagination-component.svg?style=flat)](https://npmjs.com/package/vue-pagination-component) [![NPM downloads](https://img.shields.io/npm/dm/vue-pagination-component.svg?style=flat)](https://npmjs.com/package/vue-pagination-component) [![CircleCI](https://circleci.com/gh/luyilin/vue-pagination-component/tree/master.svg?style=shield)](https://circleci.com/gh/luyilin/vue-pagination-component/tree/master)
+
 A cute [Vue](https://vuefe.cn/) pagination component.
 
 ### [Demo](https://luyilin.github.io/vue-pagination-component/example/dist/index)
